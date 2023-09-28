@@ -1,9 +1,4 @@
-# finance-dashboard
-Personal Finance Dashboard
-
 # Personal Finance Dashboard
-
-![Dashboard Screenshot](dashboard-screenshot.png)
 
 ## Table of Contents
 
@@ -33,8 +28,6 @@ The Personal Finance Dashboard is a web-based application designed to help users
 - **Debt Management:** Add information about debts, including loans and credit cards. Track debt repayment progress and outstanding balances.
 
 - **Reporting and Insights:** Generate customizable financial reports, including income statements, expense breakdowns, and net worth summaries. Visualize financial trends with charts and graphs.
-
-- **Alerts and Notifications:** Receive alerts and notifications for upcoming bill payments, account balances, and budget breaches. Customize notification preferences.
 
 - **User Settings and Preferences:** Customize user profiles, including currency preference and notification settings. Change passwords or update email addresses.
 
