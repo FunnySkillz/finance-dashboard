@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "3+JG7RxWpdCzRdzBWULbAhZac6fFrl1cw7+bmmTnyAw=",
+  "Source": "FInanceREST",
+  "BasePath": "_content/FInanceREST",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
