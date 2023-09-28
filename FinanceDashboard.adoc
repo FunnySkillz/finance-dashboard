@@ -1,0 +1,120 @@
+= Pflichtenheft
+Bogdan Sebastijan, Fitzinger Jakob
+1.0.0, 2023-09-28: SYP 7ABIF
+ifndef::imagesdir[:imagesdir: images]
+//:toc-placement!:  // prevents the generation of the doc at this position, so it can be printed afterwards
+:sourcedir: ../src/main/java
+:icons: font
+:sectnums:    // Nummerierung der Überschriften / section numbering
+:toc: left
+
+//Need this blank line after ifdef, don't know why...
+ifdef::backend-html5[]
+
+// https://fontawesome.com/v4.7.0/icons/
+//icon:file-text-o[link=https://raw.githubusercontent.com/htl-leonding-college/asciidoctor-docker-template/master/asciidocs/{docname}.adoc] ‏ ‏ ‎
+//icon:github-square[link=https://github.com/htl-leonding-college/asciidoctor-docker-template]
+//icon:home[link=https://htl-leonding.github.io/]
+endif::backend-html5[]
+
+// print the toc here (not at the default position)
+//toc::[]
+
+== Current state
+
+* Currently, individuals face challenges in managing their personal finances effectively. They use various tools and manual methods, making it difficult to have a consolidated view of their financial status. In light of this, we propose the development of a Personal Finance Dashboard.
+
+== Problem definition
+
+* The problem we aim to address is the lack of a comprehensive tool for personal finance management. People find it cumbersome to track income, expenses, savings, investments, and debts in one place. Existing solutions are often disjointed, lack real-time updates, and may compromise user data security. 
+
+== Assignment
+* We are tasked with developing a Personal Finance Dashboard application that helps users manage their finances effectively. The application should provide users with a consolidated view of their financial data, offer tools for budgeting, expense tracking, and provide insights into their financial health.
+
+=== Functional Demands / Use-cases
+
+* User Registration and Authentication: Users can create accounts and securely log in using keycloak.
+* Budget Planning: Users can set budgets for different spending categories.
+* Savings and Investment Monitoring: Users can track their savings and investments over time.
+* Debt Management: Users can manage and track debts, including loans and credit cards.
+* Reporting and Insights: Generate reports and offer insights into financial trends.
+
+==== Use-Case-Diagram
+
+
+.financeDashboard usecase diagram
+[plantuml,usecase,png]
+----
+@startuml
+
+left to right direction
+actor User as User
+User --> (Register / Log In)
+User --> (Track Income/Expenses)
+User --> (Set Budget)
+User --> (Manage Savings/Investments)
+User --> (Manage Debts)
+User --> (Generate Reports)
+User --> (Logout)
+
+@enduml
+----
+
+=== System Architecture - "How do I do it?"
+
+.financeDashboard system architecture
+[plantuml, sysa, png]
+----
+@startuml
+
+rectangle Browser {
+    rectangle "Angular Client (runtime)"
+}
+
+rectangle Traefik
+
+Browser <-down- Traefik
+Browser -down-> Traefik
+
+package "docker-compose - network" {
+    rectangle dotNET
+
+    rectangle Keycloak
+
+    database database
+
+    rectangle nginx {
+        rectangle "Angular Client (to be deployed)"
+    }
+}
+
+Traefik <-- dotNET
+Traefik --> dotNET
+
+Keycloak --> Browser
+Browser --> Keycloak
+nginx --> Browser
+@enduml
+----
+
+
+== Goal
+The goal of this project is to develop a secure, user-friendly, and feature-rich Personal Finance Dashboard that empowers users to 
+manage their finances effectively. By providing a consolidated view of their financial data, actionable insights, 
+and real-time alerts, we aim to help users make informed financial decisions and improve their financial well-being.
+
+== Framework
+
+IDE: Angular
+
+Programming Languages: C# .NET
+
+Database language:
+https://www.postgresql.org/[postgresql-DB]
+
+VCS:
+https://github.com/[GitHub]
+
+Organization: [Gitlab]
+
+
