@@ -1,13 +1,12 @@
-﻿using Core.Contracts;
-using Core.Entities;
+﻿
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System.ComponentModel.DataAnnotations;
-using Utils;
+
 
 namespace Persistence
 {
-    public class UnitOfWork : IUnitOfWork
+    public class UnitOfWork
     {
         const string FILENAME = "movies.csv";
 
@@ -19,15 +18,12 @@ namespace Persistence
         private UnitOfWork(ApplicationDbContext context)
         {
             _dbContext = new ApplicationDbContext();
-            MovieRepository = new MovieRepository(_dbContext);
-            CategoryRepository = new CategoryRepository(_dbContext);
+
         }
 
         public UnitOfWork(IConfiguration configuration) : this(new ApplicationDbContext(configuration))
         { }
-        public IMovieRepository MovieRepository { get; }
-
-        public ICategoryRepository CategoryRepository { get; }
+ 
 
         public async Task<int> SaveChangesAsync()
         {
@@ -48,17 +44,7 @@ namespace Persistence
 
         private async Task ValidateEntityAsync(object entity)
         {
-            if (entity is Category category) //Prüfung und cast gleichzeitig
-            {
-                // Alternativer expliziter cast: Category category = entity as Category;
-                if (await _dbContext.Categories.AnyAsync(c => c.CategoryName.ToUpper() == category.CategoryName.ToUpper()
-                  && (c.Id != category.Id)))
-                {
-                    //Es existiert bereits eine Kategorie mit demselben Namen
-                    throw new ValidationException(new ValidationResult("Es existiert bereits eine Kategorie mit diesem Namen",
-                        new List<string>() { nameof(category.CategoryName) }), null, null);
-                }
-            }
+
         }
 
         public async Task DeleteDatabaseAsync() => await _dbContext!.Database.EnsureDeletedAsync();
@@ -84,28 +70,28 @@ namespace Persistence
             _dbContext.Dispose();
         }
 
-        public async Task FillDbAsync()
-        {
-            await this.DeleteDatabaseAsync();
-            await this.MigrateDatabaseAsync();
+        //public async Task FillDbAsync()
+        //{
+        //    await this.DeleteDatabaseAsync();
+        //    await this.MigrateDatabaseAsync();
 
-            string[][] csvMovies = await MyFile.ReadStringMatrixFromCsvAsync(FILENAME,true);
+        //    string[][] csvMovies = await MyFile.ReadStringMatrixFromCsvAsync(FILENAME,true);
 
-            List<Category> categories = csvMovies.GroupBy(line => line[2]).Select(grp => new Category() { CategoryName = grp.Key }).ToList();
-            List<Movie> movies = csvMovies.Select(line =>
-              new Movie()
-              {
-                  Category = categories.Single(cat => cat.CategoryName == line[2]),
-                  Duration = int.Parse(line[3]),
-                  Title = line[0],
-                  Year = int.Parse(line[1]),
-              }).ToList();
+        //    List<Category> categories = csvMovies.GroupBy(line => line[2]).Select(grp => new Category() { CategoryName = grp.Key }).ToList();
+        //    List<Movie> movies = csvMovies.Select(line =>
+        //      new Movie()
+        //      {
+        //          Category = categories.Single(cat => cat.CategoryName == line[2]),
+        //          Duration = int.Parse(line[3]),
+        //          Title = line[0],
+        //          Year = int.Parse(line[1]),
+        //      }).ToList();
 
             
-            await _dbContext.Categories.AddRangeAsync(categories);
-            await _dbContext.Movies.AddRangeAsync(movies);
-            await SaveChangesAsync();
-        }
+        //    await _dbContext.Categories.AddRangeAsync(categories);
+        //    await _dbContext.Movies.AddRangeAsync(movies);
+        //    await SaveChangesAsync();
+        //}
     }
 
    

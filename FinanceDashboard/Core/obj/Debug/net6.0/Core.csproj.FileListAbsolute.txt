@@ -1,0 +1,12 @@
+C:\Users\Sebastijan\Desktop\My Documents\Schule\7ABIF\SYP\finance-dashboard\finance-dashboard\FinanceDashboard\Core\bin\Debug\net6.0\Core.deps.json
+C:\Users\Sebastijan\Desktop\My Documents\Schule\7ABIF\SYP\finance-dashboard\finance-dashboard\FinanceDashboard\Core\bin\Debug\net6.0\Core.dll
+C:\Users\Sebastijan\Desktop\My Documents\Schule\7ABIF\SYP\finance-dashboard\finance-dashboard\FinanceDashboard\Core\bin\Debug\net6.0\Core.pdb
+C:\Users\Sebastijan\Desktop\My Documents\Schule\7ABIF\SYP\finance-dashboard\finance-dashboard\FinanceDashboard\Core\obj\Debug\net6.0\Core.csproj.AssemblyReference.cache
+C:\Users\Sebastijan\Desktop\My Documents\Schule\7ABIF\SYP\finance-dashboard\finance-dashboard\FinanceDashboard\Core\obj\Debug\net6.0\Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Sebastijan\Desktop\My Documents\Schule\7ABIF\SYP\finance-dashboard\finance-dashboard\FinanceDashboard\Core\obj\Debug\net6.0\Core.AssemblyInfoInputs.cache
+C:\Users\Sebastijan\Desktop\My Documents\Schule\7ABIF\SYP\finance-dashboard\finance-dashboard\FinanceDashboard\Core\obj\Debug\net6.0\Core.AssemblyInfo.cs
+C:\Users\Sebastijan\Desktop\My Documents\Schule\7ABIF\SYP\finance-dashboard\finance-dashboard\FinanceDashboard\Core\obj\Debug\net6.0\Core.csproj.CoreCompileInputs.cache
+C:\Users\Sebastijan\Desktop\My Documents\Schule\7ABIF\SYP\finance-dashboard\finance-dashboard\FinanceDashboard\Core\obj\Debug\net6.0\Core.dll
+C:\Users\Sebastijan\Desktop\My Documents\Schule\7ABIF\SYP\finance-dashboard\finance-dashboard\FinanceDashboard\Core\obj\Debug\net6.0\refint\Core.dll
+C:\Users\Sebastijan\Desktop\My Documents\Schule\7ABIF\SYP\finance-dashboard\finance-dashboard\FinanceDashboard\Core\obj\Debug\net6.0\Core.pdb
+C:\Users\Sebastijan\Desktop\My Documents\Schule\7ABIF\SYP\finance-dashboard\finance-dashboard\FinanceDashboard\Core\obj\Debug\net6.0\ref\Core.dll

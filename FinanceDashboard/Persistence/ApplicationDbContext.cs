@@ -1,4 +1,4 @@
-﻿using Core.Entities;
+﻿
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System;
@@ -8,8 +8,6 @@ namespace Persistence
 {
     public class ApplicationDbContext: DbContext
     {
-        public DbSet<Category> Categories => Set<Category>();
-        public DbSet<Movie> Movies { get { return Set<Movie>(); } }
 
         IConfiguration _config;
 
